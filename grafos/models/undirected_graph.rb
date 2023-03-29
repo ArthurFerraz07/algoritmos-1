@@ -40,7 +40,10 @@ class UndirectedGraph < BaseModel
   end
 
   def get_vertice_by_id(vertice_id)
-    @vertices[id_to_index(vertice_id)]
+    vertice = @vertices[id_to_index(vertice_id)]
+    return vertice if vertice
+
+    raise 'vertice id not found'
   end
 
   private

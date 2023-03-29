@@ -19,9 +19,9 @@ class App
       [5, 6]
     ]
 
-    graph = UndirectedGraph.new(6, edges)
+    graph = UndirectedGraph.new(7, edges)
 
-    res = DepthFirstSearch.new(graph).call
+    res = DepthFirstSearch.new(graph).call(1)
 
     ap res
 
