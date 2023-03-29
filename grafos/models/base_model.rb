@@ -8,8 +8,8 @@ class BaseModel
 
   attr_reader :id
 
-  def initialize(id)
-    @id = id
+  def initialize(id = nil)
+    @id = id || rand((10**9)..(10**10 - 1))
   end
 
   def index

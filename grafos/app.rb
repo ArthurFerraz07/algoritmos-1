@@ -1,23 +1,37 @@
 # frozen_string_literal: true
 
-Dir['./models/*.rb'].each { |f| require f }
-Dir['./services/*.rb'].each { |f| require f }
-Dir['./helpers/*.rb'].each { |f| require f }
+Dir['./models/*.rb'].sort.each { |f| require f }
+Dir['./services/*.rb'].sort.each { |f| require f }
+Dir['./helpers/*.rb'].sort.each { |f| require f }
 
 Bundler.require(:default)
 
-include AppHelper
+# App class
+class App
+  include AppHelper
 
-edges = [
-  [1, 4],
-  [4, 3],
-  [3, 2],
-  [3, 5],
-  [5, 6]
-]
+  def playgroud
 
-grafo = Grafo.new(6, edges)
 
-print_adjacency_matrix(grafo.adjacency_matrix)
 
-# binding.pry
+
+    edges = [
+      [1, 4],
+      [4, 3],
+      [3, 2],
+      [3, 5],
+      [5, 6]
+    ]
+
+    graph = UndirectedGraph.new(6, edges)
+
+    print_adjacency_matrix(graph.adjacency_matrix)
+
+
+
+
+
+  end
+end
+
+App.new.playgroud

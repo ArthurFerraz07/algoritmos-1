@@ -2,7 +2,7 @@
 
 require './models/base_model'
 
-# An edge is a conection between two nodes
+# An edge is a conection between two vertices
 class Edge < BaseModel
   attr_reader :from_id, :to_id
 

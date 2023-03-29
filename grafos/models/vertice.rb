@@ -2,8 +2,8 @@
 
 require './models/base_model'
 
-# Defines a //grafo// node
-class Node < BaseModel
+# Defines a //grafo// vertice
+class Vertice < BaseModel
   attr_reader :label
 
   def initialize(id, label = nil, adjacency_list_enabled: true)
@@ -24,11 +24,11 @@ class Node < BaseModel
     @adjacency_list_ids
   end
 
-  def push_to_adjacency_list(node_id)
+  def push_to_adjacency_list(vertice_id)
     raise_unless_adjacency_list_enabled
-    raise 'node_id param must be a positive integer' unless positive_integer?(id)
+    raise 'vertice_id param must be a positive integer' unless positive_integer?(id)
 
-    @adjacency_list_ids << node_id
+    @adjacency_list_ids << vertice_id
   end
 
   private
