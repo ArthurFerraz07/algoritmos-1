@@ -9,13 +9,14 @@ require './models/edge'
 # "e" is the set of edges on the form [[i, j], [k, l], ...],
 # where i, j, k, l are vertice ids (0 < v <= e)
 class UndirectedGraph < BaseModel
-  attr_reader :vertices_size, :edges_by_ids, :vertices, :edges
+  attr_reader :vertices_size, :edges_by_ids, :vertices, :edges, :vertice_ids
 
   def initialize(vertices_size, edges_by_ids, adjacency_matrix_enabled: true)
     super()
     @vertices_size = vertices_size
     @edges_by_ids = edges_by_ids
     @vertices = []
+    @vertice_ids = []
     @edges = []
     @adjacency_matrix_enabled = adjacency_matrix_enabled
 
@@ -36,6 +37,10 @@ class UndirectedGraph < BaseModel
 
   def adjacency_matrix_enabled?
     !!@adjacency_matrix_enabled
+  end
+
+  def get_vertice_by_id(vertice_id)
+    @vertices[id_to_index(vertice_id)]
   end
 
   private
@@ -65,7 +70,9 @@ class UndirectedGraph < BaseModel
 
   def build_vertices
     vertices_size.times do |i|
-      @vertices << Vertice.new(index_to_id(i))
+      id_ = index_to_id(i)
+      @vertice_ids << id_
+      @vertices << Vertice.new(id_)
     end
   end
 

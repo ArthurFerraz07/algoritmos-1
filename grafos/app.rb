@@ -20,6 +20,12 @@ class App
     ]
 
     graph = UndirectedGraph.new(6, edges)
+
+    res = DepthFirstSearch.new(graph).call
+
+    ap res
+
+    # binding.pry
   end
 end
 
