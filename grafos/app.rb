@@ -11,10 +11,6 @@ class App
   include AppHelper
 
   def playgroud
-
-
-
-
     edges = [
       [1, 4],
       [4, 3],
@@ -24,13 +20,6 @@ class App
     ]
 
     graph = UndirectedGraph.new(6, edges)
-
-    print_adjacency_matrix(graph.adjacency_matrix)
-
-
-
-
-
   end
 end
 
